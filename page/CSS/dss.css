@@ -1,0 +1,356 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4e79ff, #ff7ae9);
+    /* background-repeat: no-repeat; */
+    /* 蓝色到粉色的渐变背景 */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明黑色背景 */
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.5s ease;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    /* 白色字体 */
+    transition: color 0.5s ease;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    transition: opacity 0.5s ease;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+    margin-top: 150px;
+    transition: opacity 0.5s ease;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.post {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明黑色背景 */
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+}
+
+.post:hover {
+    transform: scale(1.05);
+}
+
+.post h2 {
+    margin-top: 0;
+    color: #fff;
+    transition: color 0.5s ease;
+}
+
+.post a {
+    color: #00ffcc;
+    /* 蓝绿色链接 */
+    text-decoration: none;
+    transition: color 0.5s ease;
+}
+
+.post a:hover {
+    color: #00ff00;
+    /* 绿色链接 */
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明黑色背景 */
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.5s ease;
+}
+
+/* 下拉菜单样式 */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 社交媒体图标样式 */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 5px;
+    transition: color 0.5s ease;
+}
+
+.social-icon:hover {
+    color: #00ffcc;
+    /* 鼠标悬停时颜色变为蓝绿色 */
+}
+
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.left-sidebar,
+.main-content {
+    padding: 20px;
+    margin: 10px;
+    /* 阴影 */
+    box-shadow: 5px 5px 4px rgb(255, 98, 0);
+}
+
+.left-sidebar {
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    transition: transform 0.5s;
+
+}
+
+/* 偏转 */
+.left-sidebar:hover {
+    transform: rotateX(10deg) rotateY(-10deg);
+}
+
+/* flex值为在flex容器中所占的空间大小，值越大，空间越大 */
+.main-content {
+    margin-right: 40px;
+    flex: 4;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    transition: transform 0.5s;
+    ;
+}
+
+div.shows {
+    height: 480px;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    /* 网格间距 */
+    grid-gap: 20px;
+    grid-template-areas:
+        "work        work        work   photo "
+        "work        work        work   photo "
+        "work        work        work   photo "
+        "letter     letter      letter  photo "
+        "letter     letter      letter  photo "
+
+}
+
+section.latest-works {
+    /* background-color: red; */
+    grid-area: work;
+    /* 设置区域名称 */
+    border: 1px solid black;
+}
+
+.latest-works {
+    margin-top: 50px;
+}
+
+.work {
+    margin-bottom: 30px;
+}
+
+.work img {
+    max-width: 100%;
+}
+
+.work h3 {
+    margin-top: 10px;
+}
+
+.work p {
+    color: #888;
+}
+
+.work a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #00ffcc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.work a:hover {
+    background-color: #00cc99;
+}
+
+
+section.comments {
+    /* background-color: blue; */
+    grid-area: letter;
+    /* 设置区域名称 */
+    border: 1px solid black;
+}
+
+.comments {
+    margin-top: 50px;
+}
+
+.comment {
+    margin-bottom: 30px;
+}
+
+.comment h3 {
+    margin-bottom: 5px;
+}
+
+.comment p {
+    color: #888;
+}
+
+.rating {
+    color: gold;
+}
+
+
+section.photo-gallery {
+    /* background-color: green; */
+    grid-area: photo;
+    /* 设置区域名称 */
+    border: 1px solid black;
+}
+
+.photo-gallery {
+    margin-top: 50px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.gallery img {
+    max-width: 100%;
+}
+
+
+/* 偏转 */
+.main-content:hover {
+    transform: rotateX(10deg) rotateY(-10deg);
+}
+
+.tx {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#touxiang {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    transition-duration: 1s;
+}
+
+#touxiang:hover {
+    border-radius: 40%;
+    width: 160px;
+    height: 160px;
+}
+
+.hobit {
+    color: white;
+    TEXT-DECORATION: none
+}
+
+
+
+/* WebKit 浏览器   Chrome safari*/
+::-webkit-scrollbar {
+    width: 12px;
+    /* 滚动条宽度 */
+}
+
+/* 轨道 */
+::-webkit-scrollbar-track {
+    background-color: blue;
+    /* 滚动条轨道背景颜色 */
+}
+
+/* 滚动条 */
+::-webkit-scrollbar-thumb {
+    background-color: red;
+    /* 滚动条颜色 */
+    border-radius: 6px;
+    /* 滚动条圆角 */
+}
+
+/* 滚动条悬停状态 */
+::-webkit-scrollbar-thumb:hover {
+    background-color: orangered;
+    /* 滚动条悬停状态颜色 */
+}

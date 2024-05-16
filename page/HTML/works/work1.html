@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>击鼓</title>
+    <style>
+        body {
+            background-image: url("./img/4F873FB2-F967-4D35-BAFE-D8BAEAA7B229_1_105_c.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            align-content: center;
+        }
+
+        div.keys {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        div.key {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            font-size: 1.5em;
+            background: rgba(0, 0, 0, 0.2);
+
+            transition: all 0.07s;
+        }
+
+        .palying {
+            transform: scale(1.1);
+            background: #ffc600;
+            box-shadow: 0 0 10px #ffc600;
+        }
+
+        h1 {
+            text-align: center;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>再键盘上按对应按键试试看！</h1>
+    <div class="keys">
+        <div data-class="65" class="key">
+            <kbd>A</kbd>
+        </div>
+        <div data-class="83" class="key">
+            <kbd>S</kbd>
+        </div>
+        <div data-class="68" class="key">
+            <kbd>D</kbd>
+        </div>
+        <div data-class="70" class="key">
+            <kbd>F</kbd>
+        </div>
+        <div data-class="71" class="key">
+            <kbd>G</kbd>
+        </div>
+    </div>
+    <audio data-key="65" src="./audio/1.wav"></audio>
+    <audio data-key="83" src="./audio/2.wav"></audio>
+    <audio data-key="68" src="./audio/3.wav"></audio>
+    <audio data-key="70" src="./audio/4.wav"></audio>
+    <audio data-key="71" src="./audio/5.wav"></audio>
+    <script>
+        window.addEventListener('keydown', function (e) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+            const key = document.querySelector(`.key[data-class="${e.keyCode}"]`)
+            console.log(key)
+            if (!audio) return;//如果没有这个按键则返回
+            audio.load()
+            audio.currentTime = 0
+            audio.play()
+
+            key.classList.add('palying')
+        })
+
+        const keys = document.querySelectorAll('.key')
+        keys.forEach(key => {
+            key.addEventListener('transitionend', function () {
+                key.classList.remove('palying')
+            })
+        })
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

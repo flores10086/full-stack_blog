@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/all.css">
+    <!-- 小图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/works.css">
+</head>
+
+<body>
+    <header>
+        <h1>无林楚月的个人博客</h1>
+        <nav>
+            <ul>
+                <li><a href="./home.html">主页</a></li>
+                <li><a href="./works.html">作品集</a></li>
+                <li><a href="./message.html">留言</a></li>
+                <li><a href="./webmap.html">网站地图</a></li>
+                <li class="dropdown">
+                    <!-- 小三角 -->
+                    <a href="javascript:void(0)" class="dropbtn">更多 <i class="fas fa-caret-down"></i></a>
+                    <!-- 下拉菜单 -->
+                    <div class="dropdown-content">
+                        <a href="./aboutme.html">关于我</a>
+                        <a href="./contant.html">联系方式</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container">
+            <div class="panels">
+
+                <div class="panel panel1">
+                    <p>这</p>
+                    <p>让</p>
+                    <p>其实</p>
+                </div>
+                <div class="panel panel2">
+                    <p>是</p>
+                    <p>你</p>
+                    <p>网图</p>
+                </div>
+                <div class="panel panel3">
+                    <p>为什么</p>
+                    <p>失</p>
+                    <p>你</p>
+                </div>
+                <div class="panel panel4">
+                    <p>每张</p>
+                    <p>望</p>
+                    <p>图片</p>
+                </div>
+                <div class="panel panel5">
+                    <p>都要</p>
+                    <p>了</p>
+                    <p>点开看看</p>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 欢迎访问，合作请联系3053624046@qq.com,谢谢</p>
+        <div class="social-icons">
+            <a href="https://twitter.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script>
+        const panels = document.querySelectorAll('.panel')
+
+        function toggleOpen() {
+            this.classList.toggle('open')
+        }
+        function toggleActive(e) {
+            if (e.propertyName.includes('flex')) {
+                this.classList.toggle('open-active')
+            }
+        }
+        panels.forEach(panel => panel.addEventListener('click', toggleOpen))
+        panels.forEach(panel => panel.addEventListener('transitionend', toggleActive))
+
+    </script>
+    <script src="../JS/all.js"></script>
+
+</body>
+
+</html>

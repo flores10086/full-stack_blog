@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站地图</title>
+    <link rel="stylesheet" href="../CSS/all.css">
+    <!-- 小图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* 样式表 */
+        .container {
+            display: flex;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s;
+            max-width: 1630px;
+            max-height: 650px;
+        }
+
+        .circle {
+            fill: #4e79ff;
+            stroke: #fff;
+            stroke-width: 2;
+            cursor: pointer;
+            /* 鼠标悬停时显示手型 */
+        }
+
+        .circle-text {
+            fill: white;
+            font-size: 16px;
+            text-anchor: middle;
+            /* dominant-baseline: central; */
+            pointer-events: none;
+            /* 防止文本阻止点击事件 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面主体部分 -->
+    <header>
+        <!-- 头部 -->
+        <h1>无林楚月的个人博客</h1>
+        <nav>
+            <!-- 导航菜单 -->
+            <ul>
+                <li><a href="./home.html">主页</a></li>
+                <li><a href="./works.html">作品集</a></li>
+                <li><a href="./message.html">留言</a></li>
+                <li><a href="./webmap.html">网站地图</a></li>
+                <li class="dropdown">
+                    <!-- 下拉菜单 -->
+                    <a href="javascript:void(0)" class="dropbtn">更多 <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <!-- 下拉菜单内容 -->
+                        <a href="./aboutme.html">关于我</a>
+                        <a href="./contant.html">联系方式</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 主要内容 -->
+        <div class="container">
+            <!-- 圆形图形容器 -->
+            <svg id="sitemap" width="100%" height="100%"></svg>
+        </div>
+    </main>
+
+    <footer>
+        <!-- 页脚 -->
+        <p>&copy; 欢迎访问，合作请联系3053624046@qq.com,谢谢</p>
+        <div class="social-icons">
+            <!-- 社交媒体图标 -->
+            <a href="https://twitter.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript 代码段
+        // 随机生成圆的大小和位置
+        function getRandomCircle() {
+            const minRadius = 20;
+            const maxRadius = 60;
+            const minCoordinate = 50;
+            const maxCoordinate = 750;
+
+            const cx = Math.floor(Math.random() * (maxCoordinate - minCoordinate + 1)) + minCoordinate;
+            const cy = Math.floor(Math.random() * (maxCoordinate - minCoordinate + 1)) + minCoordinate;
+            const r = Math.floor(Math.random() * (maxRadius - minRadius + 1)) + minRadius;
+
+            return { cx, cy, r };
+        }
+
+        // 创建 SVG 圆形元素并添加到 SVG 中
+        const svg = document.getElementById('sitemap');
+        const numCircles = 6; // 生成 6 个圆形元素
+        const breathSpeed = 2000; // 呼吸速度（毫秒）
+        const pageLink = [
+            './index.html',
+            './home.html',
+            './works.html',
+            './message.html',
+            './aboutme.html',
+            './contant.html'
+        ]
+        const pageName = [
+            '索引页',
+            '主页',
+            '作品集',
+            '留言',
+            '关于我',
+            '联系我'
+        ]
+        for (let i = 0; i < numCircles; i++) {
+            const circleData = getRandomCircle();
+
+            // 创建圆形元素
+            const circleElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circleElement.setAttribute('class', 'circle');
+            circleElement.setAttribute('cx', circleData.cx);
+            circleElement.setAttribute('cy', circleData.cy);
+            circleElement.setAttribute('r', circleData.r);
+            circleElement.setAttribute('data-link', `${pageLink[i]}`);
+            circleElement.addEventListener('click', function () {
+                const link = this.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link; // 点击后跳转至对应页面
+                }
+            });
+            svg.appendChild(circleElement);
+
+            // 在圆上显示文字
+            const textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            textElement.setAttribute('class', 'circle-text');
+            textElement.setAttribute('x', circleData.cx);
+            textElement.setAttribute('y', circleData.cy);
+            textElement.textContent = `${pageName[i]}`; // 设置文本内容
+            svg.appendChild(textElement);
+
+            // 添加呼吸动画
+            setInterval(() => {
+                circleElement.animate([
+                    { r: circleData.r - 5 },
+                    { r: circleData.r + 5 },
+                    { r: circleData.r - 5 }
+                ], {
+                    duration: breathSpeed,
+                    iterations: Infinity
+                });
+            }, breathSpeed * i);
+        }
+
+    </script>
+    <script src="../JS/all.js"></script>
+
+</body>
+
+</html>

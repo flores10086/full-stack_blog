@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4e79ff, #ff7ae9);
+    /* 蓝色到粉色的渐变背景 */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* 背景盒子 */
+#container {
+    width: 100vw;
+    height: 100vh;
+    /* 一百三十五度 对角线蓝色粉色渐变*/
+    background: linear-gradient(135deg, #4e79ff, #ff7ae9);
+    transition: background-color 0.3s ease-in-out;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 背景过渡效果 */
+#content {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 超链接字体 */
+#Welcome {
+    color: white;
+    /* 过度时长 */
+    transition-duration: 2s;
+}
+
+#Welcome:hover {
+    font-size: 50px;
+    color: orangered;
+}
+
+/* 删掉超链接的下划线 */
+a {
+    TEXT-DECORATION: none
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    transition: color 0.5s ease;
+}
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* 半透明黑色背景 */
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: background-color 0.5s ease;
+}

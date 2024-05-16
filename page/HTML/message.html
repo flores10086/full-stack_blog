@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/all.css">
+    <!-- 小图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        table {
+            margin: auto;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+            width: calc(100% - 40px);
+            /* 使用calc函数来动态计算容器的宽度，减去左右两侧各20px的padding */
+            height: 100%;
+            max-width: 1630px;
+            max-height: 650px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s;
+            margin-left: auto;
+            /* 将左边距设为自动，使容器距离屏幕左边缘有一定的间距 */
+            margin-right: auto;
+            /* 将右边距设为自动，使容器距离屏幕右边缘有一定的间距 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>无林楚月的个人博客</h1>
+        <nav>
+            <ul>
+                <li><a href="./home.html">主页</a></li>
+                <li><a href="./works.html">作品集</a></li>
+                <li><a href="./message.html">留言</a></li>
+                <li><a href="./webmap.html">网站地图</a></li>
+                <li class="dropdown">
+                    <!-- 小三角 -->
+                    <a href="javascript:void(0)" class="dropbtn">更多 <i class="fas fa-caret-down"></i></a>
+                    <!-- 下拉菜单 -->
+                    <div class="dropdown-content">
+                        <a href="./aboutme.html">关于我</a>
+                        <a href="./contant.html">联系方式</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <table>
+                <form action="">
+                    <tr>
+                        <td>
+                            <caption class="表单标题" style="font: 3em orange;">
+                                登陆后方可留言
+                            </caption>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">
+                            用户名(必填)
+                        </td>
+                        <td width="75%">
+                            <input type="text" name="" id="name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            账&nbsp;&nbsp;&nbsp;号(必填)
+                        </td>
+                        <td>
+                            <input type="text" name="" id="zh" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            密&nbsp;&nbsp;&nbsp;码(必填)
+                        </td>
+                        <td>
+                            <input type="password" id="mm" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>姓名(必填):</td>
+                        <td>
+                            <input type="text" id="name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>留言:</td>
+                        <td>
+                            <input type="text" id="留言">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>联系方式:</td>
+                        <td>
+                            <input type="number" id="number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>什么目的:</td>
+                        <td>
+                            <input type="checkbox">查看评论
+                            <!-- 多选框 -->
+                            <input type="checkbox">写评论
+                            <input type="checkbox">编辑评论
+                            <input type="checkbox">点错了
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>性别:</td>
+                        <td>
+                            <input type="radio" name="gender" value="male" checked>男
+                            <!--         单选框      靠name来分组              默认选中  -->
+                            <input type="radio" name="gender" value="female">女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>权限:</td>
+                        <td>
+                            <select name="" id="">
+                                <!-- 下拉列表 -->
+                                <option value="学生">访客</option>
+                                <option value="教师">胥鼎盛本人</option>
+                                <option value="校长" selected>人类</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="reset" style="font-size: 2em;">
+                        </td>
+                        <td>
+
+                            <a href="#">
+                                <input type="submit" value="登录/注册" id="loginBtn" style="font-size: 2em;">
+                            </a>
+
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 欢迎访问，合作请联系3053624046@qq.com,谢谢</p>
+        <div class="social-icons">
+            <a href="https://twitter.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // 阻止表单默认提交行为
+            alert('抱歉，留言功能我还没做\n但是你的用户名和密码已经被我保存至数据库\n你最好不是所有账号的密码都是同一个\n现在  请移步至联系方式页面\n给我转两块钱后方可删除信息');
+        });
+
+
+    </script>
+    <script src="../JS/all.js"></script>
+</body>
+
+</html>
