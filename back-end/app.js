@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const router_user = require('./router/user')
 
 
 app.use((req,res,next) => {
@@ -12,6 +11,7 @@ app.use((req,res,next) => {
 	}
 })
 
+const router_user = require('./router/user')
 app.use('/api', router_user)
 
 
